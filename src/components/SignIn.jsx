@@ -5,6 +5,7 @@ function SignIn() {
     return (
         <div>
             <h2>로그인</h2>
+            <div className='box'>
             <div class="input-box">
                 <input data-testid="email-input" />
             </div>
@@ -12,7 +13,8 @@ function SignIn() {
                 <input data-testid="password-input" />
             </div>
         
-        <button data-testid="signin-button">로그인</button>
+            <button data-testid="signin-button">로그인</button>
+            </div>
         </div>
     );
   }

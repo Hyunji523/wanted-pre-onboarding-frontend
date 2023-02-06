@@ -1,20 +1,18 @@
 import './App.css';
 import React from 'react';
 import { Routes, Route, Link } from 'react-router-dom';
-import SignIn from './conponents/SignIn';
-import SignUp from './conponents/SignUp';
+import SignIn from './components/SignIn';
+import SignUp from './components/SignUp';
+import Home from './components/Home';
 
 function App() {
   return (
     <div>
-      <h3>preonboarding assignment</h3>
+      <Home></Home>
       <Routes>
         <Route path='signin' element={<SignIn></SignIn>} />
         <Route path='signup' element={<SignUp></SignUp>} />
       </Routes>
-      <Link to="/">홈</Link>
-      <Link to="/signup">회원가입</Link>
-      <Link to="/signin">로그인</Link>
     </div>
   );
 }
