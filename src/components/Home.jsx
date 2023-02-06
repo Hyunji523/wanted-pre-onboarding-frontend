@@ -6,9 +6,9 @@ function Home() {
   return (
     <div>
         <h2>home</h2>
-      <Link to="/">홈</Link>
-      <Link to="/signup">회원가입</Link>
-      <Link to="/signin">로그인</Link>
+      <Link to="/"><button>홈</button></Link>
+      <Link to="/signup"><button>회원가입</button></Link>
+      <Link to="/signin"><button>로그인</button></Link>
     </div>
   );
 }

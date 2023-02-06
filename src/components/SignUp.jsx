@@ -3,18 +3,17 @@ import React from 'react';
 
 function SignUp() {
     return (
-        <div>
-            <title>회원가입</title>
-            <div className='box'>
-                <div class="input-box">
-                    <input 
-                    data-testid="email-input" 
-                    type="text"        />
-                </div>
-                <div class="input-box">
-                    <input data-testid="password-input" />
-                </div>
-                <button data-testid="signup-button">가입하기</button>
+        <div className='page'>
+            <div className='titleWrap'>회원가입</div>
+            <div className='contentWrap'>
+            <span class="inputTitle">이메일</span>
+                <div className='inputWrap'>
+                <input data-testid="email-input" /></div>
+            <span class="inputTitle">비밀번호</span>
+                <div className='inputWrap'>
+                <input data-testid="password-input" /></div>
+          
+            <div><button className='bottomButton' data-testid="signin-button">가입하기</button></div>
             </div>
         </div>
     );

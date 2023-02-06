@@ -8,10 +8,10 @@ import Home from './components/Home';
 function App() {
   return (
     <div>
-      <Home></Home>
       <Routes>
-        <Route path='signin' element={<SignIn></SignIn>} />
-        <Route path='signup' element={<SignUp></SignUp>} />
+        <Route path='/' element={<Home/>} />
+        <Route path='/signin' element={<SignIn/>} />
+        <Route path='/signup' element={<SignUp/>} />
       </Routes>
     </div>
   );
