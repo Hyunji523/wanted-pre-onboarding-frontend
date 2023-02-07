@@ -57,20 +57,20 @@ let TodoList = ({todoItem, todoList, setTodoList})=>{
                 !modify ? (<span 
                     className={!todoItem.checked ? "todoapp__item-ctx" : "todoapp__item-ctx_checked"}>
                         {todoItem.text}
-                </span>) : (<input className='modify-input' value={newText} onChange={ (e) => { setnewText(e.target.value); }} onKeyDown={onKeyPress}/>)
+                </span>) : (<input data-testid="modify-input" className='modify-input' value={newText} onChange={ (e) => { setnewText(e.target.value); }} onKeyDown={onKeyPress}/>)
             }
 
             {/*  수정 버튼 */}
             {
                 !todoItem.checked ? (
                     modify ? (
-                    <button type="button" className="todoapp__item-edit-btn" onClick={modifyInput}> ✔️ </button> 
-                    ):(<button type="button" className="todoapp__item-edit-btn" onClick={modifyBtn}> 📝 </button>)
+                    <button type="button" className="todoapp__item-edit-btn" onClick={modifyInput} data-testid="submit-button" > ✔️ </button> 
+                    ):(<button type="button" className="todoapp__item-edit-btn" onClick={modifyBtn} data-testid="modify-button"> 📝 </button>)
                 ) : null
             }
             
             {/* 삭제 버튼 */}
-            <button type="button" className="todoapp__item-delete-btn" onClick={delBtn}> 🗑️ </button>
+            <button type="button" className="todoapp__item-delete-btn" onClick={delBtn} data-testid="delete-button" > 🗑️ </button>
         </li>
     )
 }
