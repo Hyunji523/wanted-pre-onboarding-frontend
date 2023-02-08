@@ -3,6 +3,13 @@ import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 
 function SignIn() {
+    //로컬스트리지에 토큰 있으면 todo로 
+    useEffect(() => {
+        if (localStorage.getItem('access_token') !== null) {
+          window.location.replace('/todo')
+        }
+      }, []);
+
     let [email, setEmail] = useState('');
     let [pw, setPw] = useState('');
 
@@ -12,12 +19,16 @@ function SignIn() {
             email : email,
             password : pw
         })
-        .then(function(res){
-            console.log(res);
+        .then(res=>{
+            console.log(res.data)
+            localStorage.clear()
             //404 사용자 존재하지 않음
             //401 비밀번호 오류
             if (res.status == 200){
                 alert("로그인 성공");
+                localStorage.setItem('email', email)
+                let token = res.data.access_token;
+                localStorage.setItem("access_token", token);
                 location.href='/todo'
             }
             
@@ -27,7 +38,6 @@ function SignIn() {
         })
 
     }
-
 
     return (
         <div className='page'>

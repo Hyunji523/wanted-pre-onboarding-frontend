@@ -36,7 +36,6 @@ let InputBox = ({todoList, setTodoList})=>{ //부모 컴포넌트(Home.jsx)로 �
 
     return (
         <div className="todoapp__inputbox">
-            {/* 아이템 내용 입력 input */}
             <input
                 type="text"
                 name="todoItem"
@@ -48,7 +47,6 @@ let InputBox = ({todoList, setTodoList})=>{ //부모 컴포넌트(Home.jsx)로 �
                 onKeyDown={onKeyPress}
                 data-testid="new-todo-input"
             />
-            {/* 입력 후 아이템 추가 버튼 */}
             <button type="submit" className="todoapp__inputbox-add-btn" onClick={onClickAddBtn} data-testid="new-todo-add-button" >
             추가
             </button>

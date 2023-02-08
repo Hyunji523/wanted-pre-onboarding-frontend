@@ -1,11 +1,19 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import InputBox from '../components/InputBox';
 import ToDoItemList from '../components/TodoItemList';
 
 const TodoHome = () => {
+  //투두화면 렌더링될때 로컬스트리지에 토큰 없으면 /으로 이동 
+  useEffect(() => {
+    if (localStorage.getItem('access_token') === null) {
+      window.location.replace('/signin')
+    }
+  }, []);
+  let email = localStorage.getItem('email');
   const [todoList, setTodoList] = useState([]);
   return (
-    <div className="home_container"> 
+    <div className="page"> 
+      <div className='titleWrap'>{email}님의 Todo List</div>
       <InputBox todoList={todoList} setTodoList={setTodoList} />
 
       {/* 할 일 Item 리스트 */}

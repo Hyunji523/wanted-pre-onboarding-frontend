@@ -64,13 +64,20 @@ let TodoList = ({todoItem, todoList, setTodoList})=>{
             {
                 !todoItem.checked ? (
                     modify ? (
-                    <button type="button" className="todoapp__item-edit-btn" onClick={modifyInput} data-testid="submit-button" > ✔️ </button> 
-                    ):(<button type="button" className="todoapp__item-edit-btn" onClick={modifyBtn} data-testid="modify-button"> 📝 </button>)
+                    <button type="button" className="todoapp__item-edit-btn" onClick={modifyInput} data-testid="submit-button" > 제출 </button> 
+                    ):(<button type="button" className="todoapp__item-edit-btn" onClick={modifyBtn} data-testid="modify-button"> 수정 </button>)
                 ) : null
             }
             
             {/* 삭제 버튼 */}
-            <button type="button" className="todoapp__item-delete-btn" onClick={delBtn} data-testid="delete-button" > 🗑️ </button>
+            {
+                !todoItem.checked ? (
+                    modify ? (
+                        <button type="button" className="todoapp__item-delete-btn" data-testid="delete-button" > 취소 </button>
+                    ):(<button type="button" className="todoapp__item-delete-btn" onClick={delBtn} data-testid="delete-button" > 삭제 </button>)
+                ) : null
+            }
+            
         </li>
     )
 }
