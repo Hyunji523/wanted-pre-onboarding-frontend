@@ -1,28 +1,37 @@
-import React from 'react';
-import ToDoItem from './TodoItem';
-import '../App.css'
+import { useEffect, useState } from 'react';
+import axios from 'axios';
+import TodoItem  from '../components/TodoItem';
 
-const TodoItemList = ({title, todoList, setTodoList, checkedList}) => (
-  <div className="todoapp__list">
-    <p className="todoapp__list-tit">{title}</p>
-    <ul className="todoapp__list-ul">
-        {
-            todoList && //tdList가 있을 때만
-            todoList.map((todoItem) => {
-              // checkedList 값에 따라 '할 일 목록' 또는 '완료한 목록'을 출력
-            
-              if(checkedList !== todoItem.checked) return null;
-                return (<ToDoItem
-                    key={todoItem.id}
-                    todoItem={todoItem}
-                    todoList={todoList}
-                    setTodoList={setTodoList}
-                />)
+const TodoItemList = ()=> {
+  const [todos, setTodos] = useState();
 
-            })
-        }
-    </ul>
-  </div>
-);
+  useEffect(() => {
+    const token = localStorage.getItem('access_token');
+    async function getTodos() {
+      axios
+        .get('https://pre-onboarding-selection-task.shop/todos', {
+          headers: { Authorization: `Bearer ${token}` },
+        })
+        .then((response) => {
+          setTodos(response.data);
+          console.log(response.data);
+          console.log('todo',todos)
+        });
+    }
+    getTodos();
+  }, []);
 
-export default TodoItemList;
+  return (
+    <>
+      <ul>
+      <ul>
+        {todos.map((todo) => (
+          
+          <TodoItem todo={todo.todo} isCompleted={todo.isCompleted}/>
+          
+        ))}
+      </ul></ul>
+    </>
+  );
+}
+export default TodoItemList

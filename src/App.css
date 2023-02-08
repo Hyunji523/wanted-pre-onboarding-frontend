@@ -188,10 +188,11 @@ height: 48px;
 .modify-input{
   flex: 1;
   border: none;
-  border-bottom: 1px solid #f1f3f5;
+  border-bottom: 1px solid;
   padding: 5px;
   font-size: 1em;
   box-sizing: border-box;
+  background-color: inherit;
 }
 .modify-input:focus{
   outline: none;
@@ -204,6 +205,7 @@ height: 48px;
 }
 .todoapp__item-ctx {
   flex: 1;
+  font-size: 1em;
 }
 .todoapp__item-ctx_checked {
   font-style: italic;
