@@ -12,11 +12,15 @@ const TodoHome = () => {
     }
   }, []);
   let email = localStorage.getItem('email');
-  
+  const logOut = ()=>{
+    localStorage.clear();
+    window.location.replace('/');
+  }
   return (
     <div className="page"> 
+      <button className='logout' onClick={logOut}>logout</button>
       <div className='titleWrap'>{email}님의 Todo List</div>
-
+      <InputBox/>
       <TodoItemList/>
 
     </div>

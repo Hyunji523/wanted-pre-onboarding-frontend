@@ -12,10 +12,12 @@ function Home() {
 
   return (
     <div className='page'>
-      <div className='title'><h2>home</h2></div>
-      <Link to="/"><button>홈</button></Link>
-      <Link to="/signup"><button>회원가입</button></Link>
-      <Link to="/signin"><button>로그인</button></Link>
+      <div className='titleWrap'>HOME</div>
+      <div className='contentWrap'>
+      <Link to="/"></Link>
+      <Link to="/signup"><button className='bottomButton'>회원가입</button></Link>
+      <Link to="/signin"><button className='bottomButton'>로그인</button></Link>
+      </div>
     </div>
   );
 }

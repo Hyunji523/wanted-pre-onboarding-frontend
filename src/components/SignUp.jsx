@@ -59,6 +59,9 @@ function SignUp() {
                 location.href='/signin'
 
             }
+            if(res.status == 400){
+                alert(res.data.message);
+            }
         })
         .catch(function(err){
             console.log(err);
