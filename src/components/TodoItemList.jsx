@@ -26,7 +26,7 @@ const TodoItemList = ()=> {
       <ul className="todoapp__list-ul">
        
       {todos?.map((todo) => (
-          <TodoItem key={todo.id} {...todo} />
+          <TodoItem key={todo.id} {...todo} id={todo.id}/>
         ))}
           
         
@@ -34,4 +34,4 @@ const TodoItemList = ()=> {
     </div>
   );
 }
-export default TodoItemList
+export default TodoItemList 

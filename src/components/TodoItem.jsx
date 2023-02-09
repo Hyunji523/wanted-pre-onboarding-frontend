@@ -1,10 +1,11 @@
 import React ,{ useEffect, useState } from "react";
 import '../App.css';
+import axios from 'axios';
 
-const TodoItem = ({ todo, isCompleted }) => {
+const TodoItem = ({ todo, isCompleted ,id}) => {
 
     useEffect(()=>{
-        console.log('todoitem',todo);
+        
     },[])
 
     const [modify, setModify] = useState(false);
@@ -17,6 +18,21 @@ const TodoItem = ({ todo, isCompleted }) => {
     }
     const delBtn = ()=>{
         //todo api delete
+        const token = localStorage.getItem('access_token');
+        console.log('del',id);
+        axios
+          .delete(
+            'https://pre-onboarding-selection-task.shop/todos/'+id, //todo id 추가
+            
+            {
+              headers: { Authorization: `Bearer ${token}` },
+            }
+          )
+          .then(({ data }) => {
+            console.log(data)
+            location.reload();
+          });
+
     }
     return (
       <li className="todoapp__item">

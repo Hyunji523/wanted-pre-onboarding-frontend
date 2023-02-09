@@ -1,7 +1,8 @@
 import React, { useEffect, useRef, useState } from 'react';
-import '../App.css'
+import '../App.css';
+import axios from 'axios';
 
-let InputBox = ({todoList, setTodoList})=>{ //부모 컴포넌트(Home.jsx)로 부터 props로 todoList와 setTodoList를 받아온다.
+let InputBox = ()=>{ 
     let [todo, setTodo] = useState('');
     let inputRef = useRef(null);
 
@@ -22,10 +23,7 @@ let InputBox = ({todoList, setTodoList})=>{ //부모 컴포넌트(Home.jsx)로 �
           )
           .then(({ data }) => {
             inputRef.current.value = '';
-            //setTodo((prev) => [...prev, data]);
-            console.log(data);
-            setTodo(''); //input 초기화
-            inputRef.current.focus(); //input으로 포커스
+            location.reload();
           });
       }
 
@@ -53,7 +51,7 @@ let InputBox = ({todoList, setTodoList})=>{ //부모 컴포넌트(Home.jsx)로 �
                 onKeyDown={onKeyPress}
                 data-testid="new-todo-input"
             />
-            <button type="submit" className="todoapp__inputbox-add-btn" data-testid="new-todo-add-button" >
+            <button type="submit" className="todoapp__inputbox-add-btn" data-testid="new-todo-add-button" onClick={handleSubmit}>
             추가
             </button>
         </div>
