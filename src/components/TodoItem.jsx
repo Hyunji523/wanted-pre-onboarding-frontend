@@ -8,12 +8,31 @@ const TodoItem = ({ todo, isCompleted ,id}) => {
         
     },[])
 
+    const [upTodo, setUptodo] = useState();
+    const [completed, setCompleted] = useState(false);
+
     const [modify, setModify] = useState(false);
     const modifyBtn = ()=>{
         setModify(true);
     }
     const modifyInput = ()=>{
         //todo api update
+        const token = localStorage.getItem('access_token');
+        console.log('up',id);
+        axios
+          .update(
+            'https://pre-onboarding-selection-task.shop/todos/'+id, //todo id 추가
+            {}, //todo string
+            {}, //todo isCompleted
+            {
+              headers: { Authorization: `Bearer ${token}` },
+            }
+          )
+          .then(({ data }) => {
+            console.log(data)
+            location.reload();
+          });
+
         setModify(false);
     }
     const delBtn = ()=>{
