@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import axios from 'axios';
 import TodoItem  from '../components/TodoItem';
+import '../App.css';
 
 const TodoItemList = ()=> {
   const [todos, setTodos] = useState();
@@ -15,23 +16,22 @@ const TodoItemList = ()=> {
         .then((response) => {
           setTodos(response.data);
           console.log(response.data);
-          console.log('todo',todos)
         });
     }
     getTodos();
   }, []);
 
   return (
-    <>
-      <ul>
-      <ul>
-        {todos.map((todo) => (
-          
-          <TodoItem todo={todo.todo} isCompleted={todo.isCompleted}/>
-          
+    <div className="todoapp__list">
+      <ul className="todoapp__list-ul">
+       
+      {todos?.map((todo) => (
+          <TodoItem key={todo.id} {...todo} />
         ))}
-      </ul></ul>
-    </>
+          
+        
+      </ul>
+    </div>
   );
 }
 export default TodoItemList

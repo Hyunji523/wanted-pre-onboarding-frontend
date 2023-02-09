@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import InputBox from './InputBox';
 import TodoItemList from './TodoItemList';
+import '../App.css';
 
 const TodoHome = () => {
   //투두화면 렌더링될때 로컬스트리지에 토큰 없으면 /으로 이동 
