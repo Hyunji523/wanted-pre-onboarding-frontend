@@ -1,35 +1,24 @@
 import { useEffect, useState } from 'react';
-import axios from 'axios';
 import TodoItem  from '../components/TodoItem';
+import * as todo from '../modules/todo';
 import '../App.css';
 
-const TodoItemList = ()=> {
-  const [todos, setTodos] = useState();
-
-  useEffect(() => {
-    const token = localStorage.getItem('access_token');
-    async function getTodos() {
-      axios
-        .get('https://pre-onboarding-selection-task.shop/todos', {
-          headers: { Authorization: `Bearer ${token}` },
-        })
-        .then((response) => {
-          setTodos(response.data);
-          console.log(response.data);
-        });
-    }
-    getTodos();
-  }, []);
+const TodoItemList = ({ todos, editTodo, deleteTodo })=> {
 
   return (
     <div className="todoapp__list">
       <ul className="todoapp__list-ul">
        
-      {todos?.map((todo) => (
-          <TodoItem key={todo.id} {...todo} id={todo.id}/>
+      {todos.map((todo , id) => (
+          <TodoItem 
+          key={id}
+          todo={todo}
+          index={id}
+          editTodo={editTodo}
+          onToggle={() => onToggle(todo.id)}
+          deleteTodo={deleteTodo}/>
         ))}
-          
-        
+
       </ul>
     </div>
   );
