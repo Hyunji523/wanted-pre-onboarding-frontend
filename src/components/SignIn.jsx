@@ -34,7 +34,13 @@ function SignIn() {
             
         })
         .catch(function(err){
-            console.log(err);
+            console.log(err.response)
+            if (err.response.data.statusCode == 401){
+                alert(err.response.data.message);
+            }
+            if (err.response.data.statusCode == 404){
+                alert(err.response.data.message);    
+            }
         })
 
     }

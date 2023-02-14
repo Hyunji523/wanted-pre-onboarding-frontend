@@ -25,14 +25,14 @@ function SignUp() {
 
     const checkEmail = (e) => {
         setEmail(e.target.value);
-        const regExp = /^[0-9a-zA-Z]([-_\.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_\.]?[0-9a-zA-Z])*\.[a-zA-Z]{2,3}$/i ;
+        const regExp = /^[A-Za-z0-9_\.\-]+@[A-Za-z0-9\-]+\.[A-Za-z0-9\-]+/;
         
         if (regExp.test(e.target.value)) {
             setEmailValid(true);
           } else {
             setEmailValid(false);
           }
-        console.log('이메일 유효성 검사 ', regExp.test(e.target.value))
+        //console.log('이메일 유효성 검사 ', regExp.test(e.target.value))
     }
     const checkPassword = (e) => {
         setPw(e.target.value);
@@ -43,7 +43,7 @@ function SignUp() {
           } else {
             setPwValid(false);
           }
-        console.log('비밀번호 유효성 검사 ', regExp.test(e.target.value))
+        //console.log('비밀번호 유효성 검사 ', regExp.test(e.target.value))
     }
 
     const clickSingup = ()=>{
@@ -57,14 +57,17 @@ function SignUp() {
             if (res.status == 201){
                 alert("회원가입 성공! 가입한 정보로 로그인 해주세요! ");
                 location.href='/signin'
-
             }
-            if(res.status == 400){
-                alert(res.data.message);
-            }
+            
         })
         .catch(function(err){
-            console.log(err);
+            console.log(err.response)
+            if (err.response.data.statusCode == 400){
+                alert(err.response.data.message);
+            }
+            if (err.response.data.statusCode == 401){
+                alert(err.response.data.message);    
+            }
         })
 
     }
