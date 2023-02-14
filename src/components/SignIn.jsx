@@ -20,16 +20,19 @@ function SignIn() {
             password : pw
         })
         .then(res=>{
-            console.log(res.data)
-            localStorage.clear()
-            //404 사용자 존재하지 않음
-            //401 비밀번호 오류
+            localStorage.clear();
             if (res.status == 200){
                 alert("로그인 성공");
                 localStorage.setItem('email', email)
                 let token = res.data.access_token;
                 localStorage.setItem("access_token", token);
                 location.href='/todo'
+            }
+            if (res.status == 401){
+                alert("가입되지 않은 사용자입니다. ")
+            }
+            if (res.status == 404){
+                alert("비밀번호가 일치하지 않습니다.")
             }
             
         })
