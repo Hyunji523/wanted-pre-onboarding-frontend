@@ -1,4 +1,6 @@
 # 2023 원티드 프리온보딩 프론트엔드 사전과제
+## 배포 링크 
+[배포링크클릭](https://strong-pothos-2dfcc9.netlify.app/)
 ## 프로젝트 실행 방법
 ```
 npm install   #패키지 다운로드
