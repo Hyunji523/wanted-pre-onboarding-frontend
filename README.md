@@ -5,11 +5,4 @@ npm install   #패키지 다운로드
 npm start     #프로젝트 실행
 ```
 ## 데모 영상
-### 회원가입
-<img width="70%" src="https://user-images.githubusercontent.com/50097134/218413571-029b5a65-1812-4ccb-8c1e-b4577d4f8207.gif"/>
-
-### 로그인
-<img width="70%" src="https://user-images.githubusercontent.com/50097134/218413652-726292b0-1cd0-4d7c-90f0-485e7606caa0.gif"/>
-
-### todolist 
-<img width="70%" src="https://user-images.githubusercontent.com/50097134/218413609-ef79ad16-4a41-41ef-b9fa-3818978c3a1d.gif"/>
+[![video label](https://user-images.githubusercontent.com/50097134/218621516-78fc2d31-87e2-465a-b6af-20388df371da.png)](https://youtu.be/M6HzzXzQfdU)
